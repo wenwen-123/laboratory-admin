@@ -1,0 +1,60 @@
+.layui-form select {
+    display: block !important;
+}
+
+.layui-form {
+    /* background-color: #f4f4f4; */
+}
+
+table {
+    background-color: #fff;
+}
+
+table thead tr {
+    height: 60px;
+    background-color: #fff;
+    color: #42494d;
+    font-size: 14px;
+    line-height: 60px;
+}
+
+table thead tr th {
+    height: 60px;
+    font-weight: 600;
+}
+
+.bootstrap-table .fixed-table-container .table thead th {
+    vertical-align: middle;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border-top: 0px solid #ddd !important;
+}
+
+.layui-btn.d {
+    float: left;
+    background-color: #4a91e1;
+    /* margin: 20px; */
+}
+
+nav {
+    float: right;
+    margin-right: 70px;
+}
+
+.layui-btn.c {
+    background-color: #4a91e1;
+    color: #fff;
+}
+
+.layui-btn.s {
+    background-color: #ffe5e5;
+    color: #ec1010;
+}
+
+.state {
+    color: #68c76d;
+}
+.pagination{
+    margin: 0;
+}

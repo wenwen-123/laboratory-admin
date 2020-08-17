@@ -1,0 +1,168 @@
+.box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    font-family: SanFranciscoDisplay-Medium;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background: url("../images/bg1.png");
+}
+
+.bg h2 {
+    font-size: 50px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.bg .bgfont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+.bg h3 {
+    letter-spacing: 14px;
+    font-size: 40px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.bg h4 {
+    font-size: 22px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+.form {
+    border-radius: 10px;
+    /*   width: 400px;
+    height: 300px; */
+    padding: 40px 60px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -30%);
+    box-shadow: 0 0 5px #e2e2e2;
+}
+
+.form input {
+    background-color: #eeeeee;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form .layui-form-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form .layui-form-item .layui-icon {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.form .layui-input {
+    padding-left: 38px;
+}
+
+.pass {
+    margin-top: -15px;
+}
+
+.pass span {
+    font-size: 14px;
+    color: #8a8a8a;
+    opacity: 0.77;
+}
+
+.pass>span {
+    float: right;
+    line-height: 2;
+}
+
+button {
+    margin: 10% 0 0;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    background-color: #4a91e1;
+}
+
+.layui-btn {
+    background-color: #4a91e1;
+}
+
+.box .layui-row {
+    height: 50%;
+}
+
+/* @media screen and (min-width: 992px) and (max-width: 1200px) {
+    .bg h2 {
+        font-size: 40px;
+    }
+    .bg h3 {
+        font-size: 30px;
+    }
+    .bg h4 {
+        font-size: 18px;
+    }
+} */
+@media screen and (min-width: 768px) and (max-width: 992px){
+    .bg h2 {
+        font-size: 40px;
+    }
+    .bg h3 {
+        font-size: 30px;
+    }
+    .bg h4 {
+        font-size: 18px;
+    }
+    .pass span {
+        font-size: 10px;
+        
+    }
+    input::-webkit-input-placeholder{
+        font-size: 12px;
+    }
+    .layui-btn {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 768px){
+    .bg h2 {
+        font-size: 30px;
+    }
+    .bg h3 {
+        font-size: 20px;
+    }
+    .bg h4 {
+        font-size: 14px;
+    }
+    .pass span {
+        font-size: 8px;
+        
+    }
+    input::-webkit-input-placeholder{
+        font-size: 10px;
+    }
+    .layui-btn {
+        font-size: 10px;
+    }
+   
+}
