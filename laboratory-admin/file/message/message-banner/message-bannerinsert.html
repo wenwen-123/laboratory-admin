@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <form class="layui-form" action="">
     <div class="layui-form-item">
       <label class="layui-form-label">选择轮播图</label>
@@ -109,6 +110,113 @@
     });
 
   </script>
+=======
+    <form class="layui-form" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择轮播图</label>
+            <div class="layui-input-inline">
+              <select name="modules" lay-verify="required" lay-search="">
+                <option value="">请选择轮播图</option>
+                <option value="1">轮播图一</option>
+                <option value="2">轮播图二</option>
+                <option value="3">轮播图三</option>
+              </select>
+            </div>
+          </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">上传图片</label>
+            <button type="button" class="layui-btn layui-btn-danger" id="test7"><i class="layui-icon"></i>上传图片</button>
+            <div class="layui-inline layui-word-aux">
+            这里以限制 1024KB 为例
+            </div>
+        </div>
+        <!-- <div class="layui-form-item">
+          <div class="layui-input-block">
+              <img src="" alt="" id="preview" width="500">
+          </div>
+        </div>
+        <input type="hidden" id="img" name="src"> -->
+
+        <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">描述</label>
+          <div class="layui-input-block">
+            <textarea name="describe" lay-verify="required" placeholder="请输入图片描述" class="layui-textarea"></textarea>
+          </div>
+        </div>
+       
+
+        
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+          
+        </div>
+      </form>
+      <script src="../../../layui.js" charset="utf-8"></script>
+      <script>
+        layui.use(['form', 'layedit', 'laydate'], function(){
+          var form = layui.form
+          ,layer = layui.layer
+          ,layedit = layui.layedit
+          ,laydate = layui.laydate;
+          
+          //日期
+          laydate.render({
+            elem: '#date'
+          });
+          laydate.render({
+            elem: '#date1'
+          });
+          
+          //创建一个编辑器
+          var editIndex = layedit.build('LAY_demo_editor');
+         
+          //自定义验证规则
+          form.verify({
+            // title: function(value){
+            //   if(value.length < 5){
+            //     return '标题至少得5个字符啊';
+            //   }
+            // }
+            pass: [
+              /^[\S]{6,12}$/
+              ,'密码必须6到12位，且不能出现空格'
+            ]
+            ,content: function(value){
+              layedit.sync(editIndex);
+            }
+          });
+          
+          
+          //监听提交
+          form.on('submit(demo1)', function(data){
+            console.log(data.field)
+            // layer.alert(JSON.stringify(data.field), {
+            //   title: '最终的提交信息',
+              
+            // })
+            // return false;
+          });
+         
+        });
+        layui.use('upload', function(){
+            var $ = layui.jquery
+            ,upload = layui.upload;
+            //设定文件大小限制
+            upload.render({
+                elem: '#test7'
+                ,url: 'https://httpbin.org/post' //改成您自己的上传接口
+                ,size: 1024 //限制文件大小，单位 KB
+                ,done: function(res){
+                layer.msg('上传成功');
+                console.log(res)
+                }
+            });
+        });
+        </script>
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
 </body>
 
 </html>
