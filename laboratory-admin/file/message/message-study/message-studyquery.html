@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>高校实验室管理 </title>
+    <meta name="keywords" content="高校实验室管理系统" />
+    <meta name="description" content="高校实验室管理系统" />
+    <link rel="stylesheet" href="./css/layui.css">
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/table2.js"></script>
+    <link rel="stylesheet" href="./css/device.css">
+    <link rel="stylesheet" href="../../../css/layui.css" media="all">
+</head>
+
+<body>
+    <table class="layui-hide" id="test" lay-filter="test"></table>
+    <script type="text/html" id="toolbarDemo">
+    </script>
+    <script src="../../../layui.js" charset="utf-8"></script>
+    <!--先加载jquery-->
+    <!-- <script src="./js/jquery-3.4.1.js"></script> -->
+    <!--再加载插件-->
+    <script src="./js/layui_exts/excel.js"></script>
+    <script>
+        layui.use(['table', 'jquery', 'layer'], function () {
+            var table = layui.table;
+            var $ = layui.jquery;
+            var layer = layui.layer;
+
+            table.render({
+                toolbar: '#toolbarDemo',
+                elem: '#test',
+                url: "http://192.168.0.117:8080/lab/allstudys",
+                method: "get",
+                page: true,
+                limit: 5,
+                limits: [5, 10, 15, 20],
+                title: "科研数据表"
+                , cols: [[
+                    { field: 'id', title: '科研编号', fixed: 'left', unresize: true, }
+                    , { field: 'title', title: '科研标题', edit: 'text' }
+                    , { field: 'informationSource', title: '资料来源', edit: 'text' }
+                    , { field: 'author', title: '作者', edit: 'text' }
+                    , { field: 'time', title: '时间', edit: 'text' }
+                    , { field: 'content', title: '内容', edit: 'text' }
+                ]],
+                response: {
+                    statusName: 'code' //数据状态的字段名称，默认：code
+                    , statusCode: 200 //成功的状态码，默认：0
+                    , msgName: 'msg' //状态信息的字段名称，默认：msg
+                    , countName: 'count' //数据总数的字段名称，默认：count
+                    , dataName: 'data' //数据列表的字段名称，默认：data
+                },
+                parseData: function (res) { //res 即为原始返回的数据
+                    res.data.map(ele => {
+                        ele.time = new Date(ele.time);
+                        let batchTime = ele.time.getFullYear() + '-' + (ele.time.getMonth() + 1) + '-' + ele.time.getDate();
+                        ele.time = batchTime;
+                    })
+                    return {
+                        "code": res.code, //解析接口状态
+                        "msg": res.message, //解析提示文本
+                        "count": res.total, //解析数据长度
+                        "data": res.data //解析数据列表
+                    };
+                }
+                , page: true
+            });
+            //监听行工具事件
+            table.on('tool(test)', function (obj) {
+                var data = obj.data;
+                //console.log(obj)
+                if (obj.event === 'del') {
+                    layer.confirm('真的删除行么', function (index) {
+                        obj.del();
+                        layer.close(index);
+                    });
+                } else if (obj.event === 'edit') {
+                    layer.prompt({
+                        formType: 2
+                        , value: data.email
+                    }, function (value, index) {
+                        obj.update({
+                            email: value
+                        });
+                        layer.close(index);
+                    });
+                }
+            });
+            table.on('edit(test)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+                console.log(obj.value); //得到修改后的值
+                console.log(obj.field); //当前编辑的字段名
+                console.log(obj.data); //所在行的所有相关数据  
+                layer.msg("修改成功");
+                $.ajax({
+                    type: "post",
+                    url: "http://192.168.0.117:8080/lab/updatestudy",
+                    data: obj.data,
+                    dataType: JSON,
+                    success: (res) => {
+                        console.log(res);
+                    },
+                    error: (err) => {
+                        console.log(err);
+                    }
+
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>
