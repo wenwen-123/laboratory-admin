@@ -31,12 +31,21 @@
             这里以限制 1024KB 为例
             </div>
         </div>
+        <!-- <div class="layui-form-item">
+          <div class="layui-input-block">
+              <img src="" alt="" id="preview" width="500">
+          </div>
+        </div>
+        <input type="hidden" id="img" name="src"> -->
+
         <div class="layui-form-item layui-form-text">
           <label class="layui-form-label">描述</label>
           <div class="layui-input-block">
-            <textarea placeholder="请输入图片描述" class="layui-textarea"></textarea>
+            <textarea name="describe" lay-verify="required" placeholder="请输入图片描述" class="layui-textarea"></textarea>
           </div>
         </div>
+       
+
         
         <div class="layui-form-item">
           <div class="layui-input-block">
@@ -84,10 +93,12 @@
           
           //监听提交
           form.on('submit(demo1)', function(data){
-            layer.alert(JSON.stringify(data.field), {
-              title: '最终的提交信息'
-            })
-            return false;
+            console.log(data.field)
+            // layer.alert(JSON.stringify(data.field), {
+            //   title: '最终的提交信息',
+              
+            // })
+            // return false;
           });
          
         });
