@@ -88,11 +88,22 @@
             <!-- 侧边菜单 -->
             <div class="layui-side layui-side-menu">
                 <div class="layui-side-scroll">
-                    <div class="layui-logo" lay-href="./file/home/home-page.html">
+                    <div class="layui-logo" lay-href="./home/home-page.html">
                         <span>高校实验室管理系统</span>
                     </div>
 
                     <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+                        <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                            <a href="javascript:;" lay-tips="主页" lay-direction="2">
+                                <i class="layui-icon layui-icon-home"></i>
+                                <cite>主页</cite>
+                            </a>
+                            <dl class="layui-nav-child">
+                                <dd data-name="console">
+                                    <a lay-href="home/home-page.html">主页</a>
+                                </dd>
+                            </dl>
+                        </li>
                         <li data-name="message" class="layui-nav-item">
                             <a href="javascript:;" lay-tips="组件" lay-direction="2">
                                 <i class="layui-icon layui-icon-component"></i>
@@ -102,92 +113,87 @@
                                 <dd data-name="grid">
                                     <a href="javascript:;">轮播图管理</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/message/message-banner/message-bannerinsert.html">轮播图添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/message/message-banner/message-bannerquery.html">轮播图查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-banner/message-bannerinsert.html">轮播图添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-banner/message-bannerquery.html">轮播图查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd data-name="button">
                                     <a href="javascript:;">新闻管理</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/message/message-news/message-newsinsert.html">新闻添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/message/message-news/message-newsquery.html">新闻查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-news/message-newsinsert.html">新闻添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-news/message-newsquery.html">新闻查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd data-name="form">
                                     <a href="javascript:;">制度管理</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/message/message-regime/message-regimeinsert.html">制度添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/message/message-regime/message-regimequery.html">制度查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-regime/message-regimeinsert.html">制度添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-regime/message-regimequery.html">制度查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd data-name="nav">
                                     <a href="javascript:;">科研管理</a>
                                     <dl class="layui-nav-child">
+<<<<<<< HEAD
+                                        <dd data-name="list"><a lay-href="./message/message-study/message-studyinsert.html">科研添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-study/message-studyquery.html">科研查看</a></dd>
+=======
                                         <dd data-name="list"><a lay-href="./file/message/message-study/message-studyinsert.html">科研添加</a></dd>
                                         <dd data-name="list"><a lay-href="./file/message/message-study/message-studyquery.html">科研查看</a></dd>
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
                                     </dl>
                                 </dd>
                                 <dd data-name="tabs">
                                     <a href="javascript:;">公告管理</a>
                                     <dl class="layui-nav-child">
+<<<<<<< HEAD
+                                        <dd data-name="list"><a lay-href="./message/message-notice/message-noticeinsert.html">科研添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./message/message-notice/message-noticequery.html">科研查看</a></dd>
+=======
                                         <dd data-name="list"><a lay-href="./file/message/message-notice/message-noticeinsert.html">公告添加</a></dd>
                                         <dd data-name="list"><a lay-href="./file/message/message-notice/message-noticequery.html">公告查看</a></dd>
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
                                     </dl>
                                 </dd>
-                            </dl>
-                        </li>
-                        <li data-name="lab" class="layui-nav-item">
-                            <a href="javascript:;" lay-tips="页面" lay-direction="2">
-                                <i class="layui-icon layui-icon-template"></i>
-                                <cite>实验室管理</cite>
-                            </a>
-                            <dl class="layui-nav-child">
-                                <dd data-name="list"><a lay-href="./file/lab/labinsert.html">实验室添加</a></dd>
-                                <dd data-name="list"><a lay-href="./file/lab/labquery.html">实验室查看</a></dd>
-                            </dl>
-                        </li>
-                        <li data-name="teach" class="layui-nav-item">
-                            <a href="javascript:;" lay-tips="页面" lay-direction="2">
-                                <i class="layui-icon layui-icon-template"></i>
-                                <cite>实验室教学管理</cite>
-                            </a>
-                            <dl class="layui-nav-child">
-                                <dd data-name="list"><a lay-href="./file/teach/teachinsert.html">教学资料上传</a></dd>
-                                <dd data-name="list"><a lay-href="./file/teach/teachquery.html">教学资料查看</a></dd>
                             </dl>
                         </li>
                         <li data-name="device" class="layui-nav-item">
                             <a href="javascript:;" lay-tips="页面" lay-direction="2">
                                 <i class="layui-icon layui-icon-template"></i>
-                                <cite>设备管理</cite>
+                                <cite>仪器设备管理</cite>
                             </a>
                             <dl class="layui-nav-child">
                                 <dd>
-                                    <a href="javascript:;">设备档案</a>
+                                    <a href="javascript:;">设备信息</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/device/device-message/device-messageinsert.html">设备添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/device/device-message/device-messagequery.html">设备查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-message/device-messageinsert.html">设备添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-message/device-messagequery.html">设备查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd>
                                     <a href="javascript:;">项目信息</a>
                                     <dl class="layui-nav-child">
+<<<<<<< HEAD
                                         <!-- <dd data-name="list"><a lay-href="./file/device/device-lab/device-labinsert.html">项目添加</a></dd> -->
                                         <dd data-name="list"><a lay-href="./file/device/device-lab/device-labquery.html">项目查看</a></dd>
+=======
+                                        <dd data-name="list"><a lay-href="./device/device-lab/device-labinsert.html">项目添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-lab/device-labinsert.html">项目查看</a></dd>
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
                                     </dl>
                                 </dd>
                                 <dd>
                                     <a href="javascript:;">试验状态监控</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/device/device-mon/device-moninsert.html">状态添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/device/device-mon/device-monquery.html">状态查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-mon/device-moninsert.html">状态添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-mon/device-monquery.html">状态查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd>
                                     <a href="javascript:;">智能分析</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/device/device-ai/device-aiinsert.html">智能添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/device/device-ai/device-aiquery.html">智能查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-ai/device-aiinsert.html">智能添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./device/device-ai/device-aiquery.html">智能查看</a></dd>
                                     </dl>
                                 </dd>
                             </dl>
@@ -198,32 +204,33 @@
                                 <cite>耗材管理</cite>
                             </a>
                             <dl class="layui-nav-child">
+
                                 <dd data-name="content">
                                     <a href="javascript:;">基本资料</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-inform/consume-informinsert.html">资料添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-inform/consume-informquery.html">资料查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-inform/consume-informinsert.html">资料添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-inform/consume-informquery.html">资料查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd data-name="forum">
                                     <a href="javascript:;">申请购置</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-storage/consume-storageinsert.html">申请添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-storage/consume-storagequery.html">申请查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-storage/consume-storageinsert.html">申请添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-storage/consume-storagequery.html">申请查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd>
                                     <a href="javascript:;">保管领用</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-custody/consume-custodyinsert.html">领用申请</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-custody/consume-custodyquery.html">领用查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-custody/consume-custodyinsert.html">领用添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-custody/consume-custodyquery.html">领用查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd data-name="workorder">
                                     <a href="javascript:;">管理标准</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-norm/consume-norminsert.html">标准添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/consume/consume-norm/consume-normquery.html">标准查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-norm/consume-norminsert.html">标准添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./consume/consume-norm/consume-normquery.html">标准查看</a></dd>
                                     </dl>
                                 </dd>
                             </dl>
@@ -237,29 +244,11 @@
                                 <dd>
                                     <a href="javascript:;">预约安排</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/arrange/arrange-page/arrange-pageinsert.html">预约添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/arrange/arrange-page/arrange-pagequery.html">预约查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./arrange/arrange-page/arrange-pageinsert.html">预约添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./arrange/arrange-page/arrange-pagequery.html">预约查看</a></dd>
                                     </dl>
                                 </dd>
                             </dl>
-                        </li>
-                        <li data-name="maintain" class="layui-nav-item">
-                            <a href="javascript:;" lay-tips="页面" lay-direction="2">
-                                <i class="layui-icon layui-icon-template"></i>
-                                <cite>设备维护</cite>
-                            </a>
-                            <dl class="layui-nav-child">
-                                <dd data-name="list"><a lay-href="./file/maintain/maintain-apply.html">申请维护</a></dd>
-                                <dd data-name="list"><a lay-href="./file/maintain/maintain-record.html">维护记录</a></dd>
-                                <dd>
-                                    <a href="javascript:;">报损报废</a>
-                                    <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/maintain/maintain-scrap/maintain-scrapinsert.html">报废添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/maintain/maintain-scrap/maintain-scrapquery.html">报废查看</a></dd>
-                                    </dl>
-                                </dd>
-                            </dl>
-                           
                         </li>
                         <li data-name="project" class="layui-nav-item">
                             <a href="javascript:;" lay-tips="用户" lay-direction="2">
@@ -270,15 +259,15 @@
                                 <dd>
                                     <a href="javascript:;">实验项目</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/project/project-science/project-scienceinsert.html">项目添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/project/project-science/project-sciencequery.html">项目查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./project/project-science/project-scienceinsert.html">项目添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./project/project-science/project-sciencequery.html">项目查看</a></dd>
                                     </dl>
                                 </dd>
                                 <dd>
                                     <a href="javascript:;">教学项目</a>
                                     <dl class="layui-nav-child">
-                                        <dd data-name="list"><a lay-href="./file/project/project-check/project-checkinsert.html">资源添加</a></dd>
-                                        <dd data-name="list"><a lay-href="./file/project/project-check/project-checkquery.html">资源查看</a></dd>
+                                        <dd data-name="list"><a lay-href="./project/project-check/project-checkinsert.html">资源添加</a></dd>
+                                        <dd data-name="list"><a lay-href="./project/project-science/project-sciencequery.html">资源查看</a></dd>
                                     </dl>
                                 </dd>
                             </dl>
@@ -290,19 +279,10 @@
                             </a>
                             <dl class="layui-nav-child">
                                 <dd class="layui-nav-itemed">
-                                    <a lay-href="./file/system/system-role.html">角色管理</a>
+                                    <a lay-href="./system/system-number.html">用户信息</a>
                                 </dd>
                                 <dd class="layui-nav-itemed">
-                                    <a lay-href="./file/system/system-number.html">账号管理</a>
-                                </dd>
-                                <dd class="layui-nav-itemed">
-                                    <a lay-href="./file/system/system-menu.html">菜单管理</a>
-                                </dd>
-                                <dd class="layui-nav-itemed">
-                                    <a lay-href="./file/system/system-password.html">密码修改</a>
-                                </dd>
-                                <dd class="layui-nav-itemed">
-                                    <a lay-href="./file/system/system-audit.html">角色审计</a>
+                                    <a lay-href="./system/system-password.html">密码修改</a>
                                 </dd>
                             </dl>
                         </li>
@@ -337,7 +317,15 @@
             <!-- 主体内容 -->
             <div class="layui-body" id="LAY_app_body">
                 <div class="layadmin-tabsbody-item layui-show">
+<<<<<<< HEAD
                     <iframe src="./file/consume/consume-inform/consume-informquery.html" frameborder="0" class="layadmin-iframe"></iframe>
+=======
+<<<<<<< HEAD
+                    <iframe src="message/message-banner/message-bannerinsert.html" frameborder="0" class="layadmin-iframe"></iframe>
+=======
+                    <iframe src="./file/message/message-regime/message-regimequery.html" frameborder="0" class="layadmin-iframe"></iframe>
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
                 </div>
             </div>
 

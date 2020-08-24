@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>高校实验室管理系统</title>
     <link rel="stylesheet" href="../../../css/layui.css" media="all">
+<<<<<<< HEAD
+=======
+    <script src="../../../js/jquery-3.4.1.js"></script>
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
     <style>
         .layui-form {
             padding: 20px 10px;
@@ -23,21 +27,36 @@
             </div>
         </div>
         <div class="layui-form-item">
+<<<<<<< HEAD
             <label class="layui-form-label">资料来源</label>
             <div class="layui-input-block">
                 <input type="text" name="informationSource" lay-verify="informationSource" autocomplete="off"
                     placeholder="请输入资料来源" class="layui-input">
+=======
+            <label class="layui-form-label">信息来源</label>
+            <div class="layui-input-block">
+                <input type="text" name="informationSource" lay-verify="title" autocomplete="off" placeholder="请输入信息来源"
+                    class="layui-input">
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">作者</label>
             <div class="layui-input-block">
+<<<<<<< HEAD
                 <input type="text" name="author" lay-verify="autor" autocomplete="off" placeholder="请输入作者"
+=======
+                <input type="text" name="author" lay-verify="title" autocomplete="off" placeholder="请输入作者"
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
                     class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
+<<<<<<< HEAD
             <label class="layui-form-label">日期</label>
+=======
+            <label class="layui-form-label">验证日期</label>
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
             <div class="layui-input-inline">
                 <input type="text" name="time" id="date" lay-verify="time" placeholder="yyyy-MM-dd" autocomplete="off"
                     class="layui-input">
@@ -52,7 +71,11 @@
         <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">内容</label>
             <div class="layui-input-block">
+<<<<<<< HEAD
                 <textarea class="layui-textarea layui-hide" name="content" lay-verify="content"
+=======
+                <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" 
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
                     id="LAY_demo_editor"></textarea>
             </div>
         </div>
@@ -65,6 +88,7 @@
         </div>
     </form>
     <script src="../../../layui.js" charset="utf-8"></script>
+<<<<<<< HEAD
     <script src="../../../js/jquery-3.4.1.js"></script>
     <script>
         layui.use(['form', 'layedit', 'laydate', 'jquery'], function () {
@@ -73,6 +97,17 @@
                 , layedit = layui.layedit
                 , laydate = layui.laydate
                 , $ = layui.jquery;
+=======
+    <script>
+        layui.use(['form', 'layedit', 'jquery', 'laydate', 'layer'], function () {
+            var form = layui.form
+            var layer = layui.layer
+            var layedit = layui.layedit
+            var laydate = layui.laydate
+            var $ = layui.jquery
+            var layer = layui.layer
+
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
 
             //日期
             laydate.render({
@@ -113,6 +148,7 @@
             form.on('submit(demo1)', function (data) {
                 console.log(data.field);
                 $.ajax({
+<<<<<<< HEAD
                     url: "http://192.168.0.117:8080/lab/insertnotice",
                     type: 'POST',
                     data: data.field,
@@ -124,6 +160,20 @@
                     error: (err) => {
                         console.log(err);
                     }
+=======
+                    type: 'POST',
+                    datatype: "json",
+                    url: "http://192.168.0.117:8080/lab/insertnotice",
+                    data: data.field,
+                    success: (res) => {
+                        console.log(res);
+                        layer.msg("添加成功");
+                    },
+                    error: (err) => {
+                        //=>xhr:是JQ帮我们处理过的AJAX实例
+                        console.log(err);
+                    },
+>>>>>>> 8709c914bb84e8c7ee89c0612e366b13615a43f2
                 });
                 return false;
             });

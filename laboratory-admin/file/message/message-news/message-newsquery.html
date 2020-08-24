@@ -16,6 +16,10 @@
 <body>
   <table class="layui-hide" id="test" lay-filter="test"></table>
   <script type="text/html" id="toolbarDemo">
+<<<<<<< HEAD
+    </script>
+  <script src="../../../layui.js" charset="utf-8"></script>
+=======
     <div class="layui-btn-container">
       <!-- <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
             <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
@@ -30,12 +34,48 @@
   <script src="../../../layui.js" charset="utf-8"></script>
   <script src="../../../js/vue.js"></script>
   <script src="../../../layui.js"></script>
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
   <!--先加载jquery-->
   <!-- <script src="./js/jquery-3.4.1.js"></script> -->
   <!--再加载插件-->
   <script src="./js/layui_exts/excel.js"></script>
   <script>
     layui.use(['table', 'jquery', 'layer'], function () {
+<<<<<<< HEAD
+      var table = layui.table;
+      var $ = layui.jquery;
+      var layer = layui.layer;
+
+      table.render({
+        toolbar: '#toolbarDemo',
+        elem: '#test',
+        url: "http://192.168.0.117:8080/lab/allnewss",
+        method: "get",
+        page: true,
+        limit: 5,
+        limits: [5, 10, 15, 20],
+        title: "新闻数据表"
+        , cols: [[
+          { field: 'id', title: '新闻编号', fixed: 'left', unresize: true, }
+          , { field: 'title', title: '新闻标题', edit: 'text' }
+          , { field: 'informationSource', title: '资料来源', edit: 'text' }
+          , { field: 'author', title: '作者', edit: 'text' }
+          , { field: 'time', title: '时间', edit: 'text' }
+          , { field: 'content', title: '内容', edit: 'text' }
+        ]],
+        response: {
+          statusName: 'code' //数据状态的字段名称，默认：code
+          , statusCode: 200 //成功的状态码，默认：0
+          , msgName: 'msg' //状态信息的字段名称，默认：msg
+          , countName: 'count' //数据总数的字段名称，默认：count
+          , dataName: 'data' //数据列表的字段名称，默认：data
+        },
+        parseData: function (res) { //res 即为原始返回的数据
+          res.data.map(ele => {
+            ele.time = new Date(ele.time);
+            let batchTime = ele.time.getFullYear() + '-' + (ele.time.getMonth() + 1) + '-' + ele.time.getDate();
+            ele.time = batchTime;
+=======
       var table = layui.table,
       $ = layui.jquery,
       layer = layui.layer;
@@ -100,6 +140,7 @@
               .getDate();
             ele.time = batchTime;
             // ele.status = ele.status == 1 ? '未归还' : '已归还';
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
           })
           return {
             "code": res.code, //解析接口状态
@@ -107,6 +148,43 @@
             "count": res.total, //解析数据长度
             "data": res.data //解析数据列表
           };
+<<<<<<< HEAD
+        }
+      });
+      //监听行工具事件
+      table.on('tool(test)', function (obj) {
+        var data = obj.data;
+        //console.log(obj)
+        if (obj.event === 'del') {
+          layer.confirm('真的删除行么', function (index) {
+            obj.del();
+            layer.close(index);
+          });
+        } else if (obj.event === 'edit') {
+          layer.prompt({
+            formType: 2
+            , value: data.email
+          }, function (value, index) {
+            obj.update({
+              email: value
+            });
+            layer.close(index);
+          });
+        }
+      });
+      table.on('edit(test)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+        console.log(obj.value); //得到修改后的值
+        console.log(obj.field); //当前编辑的字段名
+        console.log(obj.data); //所在行的所有相关数据  
+        layer.msg("修改成功");
+        $.ajax({
+          type: "post",
+          url: "http://192.168.0.117:8080/lab/updatenews",
+          data: obj.data,
+          dataType: JSON,
+          success: (res) => {
+            console.log(res);
+=======
         },
         page: true
       });
@@ -148,12 +226,18 @@
           success: (res) => {
             console.log(res);
             layer.msg('修改成功');
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
           },
           error: (err) => {
             console.log(err);
           }
+<<<<<<< HEAD
+
+        })
+=======
         });
         // return false;
+>>>>>>> d85dd8955b873aac3cf4833cc228e52ca60e31c5
       });
     });
   </script>
