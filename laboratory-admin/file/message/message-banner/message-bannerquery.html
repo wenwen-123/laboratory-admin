@@ -38,6 +38,7 @@
     <script>
         layui.use('table', function(){
           var table = layui.table;
+          // var index=layer.load(1);  //loading
           
           table.render({
             elem: '#test'
@@ -52,12 +53,39 @@
             ,cols: [[
             //   {type: 'checkbox', fixed: 'left'}
               ,{field:'id', title:'轮播图编号',  fixed: 'left', unresize: true}
-              ,{field:'thumb', title:'缩略图'}
-              ,{field:'describe', title:'轮播图描述', edit: 'text'}
+              ,{field:'field', title:'缩略图'}
+              ,{field:'name', title:'轮播图描述', edit: 'text'}
             //   ,{field:'city', title:'出厂编号',}
             //   ,{field:'experience', title:'出厂日期'}
             //   ,{field:'logins', title:'生产厂商编号'}
-            ]]
+            ]],
+            response: {
+              statusName: 'code' //数据状态的字段名称，默认：code
+                ,
+              statusCode: 200 //成功的状态码，默认：0
+                ,
+              msgName: 'msg' //状态信息的字段名称，默认：msg
+                ,
+              countName: 'count' //数据总数的字段名称，默认：count
+                ,
+              dataName: 'data' //数据列表的字段名称，默认：data
+            },
+            parseData: function (res) { //res 即为原始返回的数据
+              layer.close(index);  //返回数据关闭loading
+              res.data.map(ele => {
+                ele.factime = new Date(ele.factime);
+                let batchTime = ele.factime.getFullYear() + '-' + (ele.factime.getMonth() + 1) + '-' + ele.factime
+                  .getDate();
+                ele.factime = batchTime;
+                // ele.status = ele.status == 1 ? '未归还' : '已归还';
+              })
+              return {
+                "code": res.code, //解析接口状态
+                "msg": res.message, //解析提示文本
+                "count": res.total, //解析数据长度
+                "data": res.data //解析数据列表
+              };
+            }
             ,page: true
           });
           

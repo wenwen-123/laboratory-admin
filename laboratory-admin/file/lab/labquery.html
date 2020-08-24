@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>高校实验室管理 </title>
+  <meta name="keywords" content="高校实验室管理系统" />
+  <meta name="description" content="高校实验室管理系统" />
+  <link rel="stylesheet" href="../../css/layui.css">
+  <script src="../../js/jquery-3.4.1.js"></script>
+  <script src="../../js/table2.js"></script>
+  <link rel="stylesheet" href="../../css/device.css">
+  <link rel="stylesheet" href="../../css/layui.css" media="all">
+</head>
+
+<body>
+  <table class="layui-hide" id="test" lay-filter="test"></table>
+  <script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+      <!-- <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+            <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+            <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button> -->
+    </div>
+  </script>
+
+  <script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  </script>
+  <script src="../../layui.js" charset="utf-8"></script>
+  <script src="../../js/vue.js"></script>
+  <script src="../../layui.js"></script>
+  <!--先加载jquery-->
+  <!-- <script src="./js/jquery-3.4.1.js"></script> -->
+  <!--再加载插件-->
+  <script src="../../js/layui_exts/excel.js"></script>
+  <script>
+    layui.use(['table', 'jquery', 'layer'], function () {
+      var table = layui.table,
+      $ = layui.jquery,
+      layer = layui.layer;
+
+      table.render({
+        elem: '#test',
+        url: '',
+        method: "get",
+        limit: 5,
+        limits: [5, 10, 15, 20],
+        toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+          ,
+        defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+          title: '提示',
+          layEvent: 'LAYTABLE_TIPS',
+          icon: 'layui-icon-tips'
+        }],
+        title: '新闻数据表',
+        cols: [
+          [{
+            field: 'id',
+            title: '新闻编号',
+            fixed: 'left',
+            unresize: true
+          }, {
+            field: 'title',
+            title: '新闻标题',
+            edit: 'text'
+          }, {
+            field: 'informationSource',
+            title: '资料来源',
+            edit: 'text'
+          }, {
+            field: 'author',
+            title: '作者',
+            edit: 'text'
+          }, {
+            field: 'time',
+            title: '时间',
+            edit: 'text'
+          }, {
+            field: 'content',
+            title: '内容',
+            edit: 'text'
+          }]
+        ],
+        response: {
+          statusName: 'code' //数据状态的字段名称，默认：code
+            ,
+          statusCode: 200 //成功的状态码，默认：0
+            ,
+          msgName: 'msg' //状态信息的字段名称，默认：msg
+            ,
+          countName: 'count' //数据总数的字段名称，默认：count
+            ,
+          dataName: 'data' //数据列表的字段名称，默认：data
+        },
+        parseData: function (res) { //res 即为原始返回的数据
+          res.data.map(ele => {
+            ele.time = new Date(ele.time);
+            let batchTime = ele.time.getFullYear() + '-' + (ele.time.getMonth() + 1) + '-' + ele.time
+              .getDate();
+            ele.time = batchTime;
+            // ele.status = ele.status == 1 ? '未归还' : '已归还';
+          })
+          return {
+            "code": res.code, //解析接口状态
+            "msg": res.message, //解析提示文本
+            "count": res.total, //解析数据长度
+            "data": res.data //解析数据列表
+          };
+        },
+        page: true
+      });
+
+      //头工具栏事件
+      table.on('toolbar(test)', function (obj) {
+        var checkStatus = table.checkStatus(obj.config.id);
+        switch (obj.event) {
+          case 'getCheckData':
+            var data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
+            break;
+          case 'getCheckLength':
+            var data = checkStatus.data;
+            layer.msg('选中了：' + data.length + ' 个');
+            break;
+          case 'isAll':
+            layer.msg(checkStatus.isAll ? '全选' : '未全选');
+            break;
+
+            //自定义头工具栏右侧图标 - 提示
+          case 'LAYTABLE_TIPS':
+            layer.alert('这是工具栏右侧自定义的一个图标按钮');
+            break;
+        };
+      });
+
+      //监听行工具事件
+      table.on('edit(test)', function (obj) {
+        console.log(obj);
+        console.log(obj.value);
+        console.log(obj.field);
+        console.log(obj.data);
+        $.ajax({
+          url: "",
+          type: 'POST',
+          data: obj.data,
+          dataType: 'JSON',
+          success: (res) => {
+            console.log(res);
+            layer.msg('修改成功');
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
+        // return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
